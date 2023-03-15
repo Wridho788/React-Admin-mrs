@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col, Clearfix } from 'react-bootstrap'
+import { Row, Col, } from 'react-bootstrap'
 import { XPanel, PageTitle } from '../../components'
 
 class MediaGallery extends Component {
@@ -16,11 +16,10 @@ class MediaGallery extends Component {
 
     return (
       <div>
-        <PageTitle showSearch title="Media Gallery" smallTitle="gallery design" onSearch={ text => console.log(text) }/>
-        <Clearfix/>
+        <PageTitle showSearch title="Media Gallery" smallTitle="gallery design" onSearch={text => console.log(text)} />
         <Row>
-          <Col md={ 12 } sm={ 12 } xs={ 12 }>
-            <XPanel visible={ panelVisible } onHide={ onHide }>
+          <Col md={12} sm={12} xs={12}>
+            <XPanel visible={panelVisible} onHide={onHide}>
               <XPanel.Title title="Media Gallery" smallTitle="gallery design">
                 <XPanel.MenuItem>Settings 1</XPanel.MenuItem>
                 <XPanel.MenuItem>Settings 2</XPanel.MenuItem>
@@ -28,16 +27,16 @@ class MediaGallery extends Component {
               <XPanel.Content>
                 <Row>
                   <p>Media gallery design emelents</p>
-                  <Thumbnail/>
-                  <Thumbnail/>
-                  <Thumbnail/>
-                  <Thumbnail/>
-                  <Thumbnail/>
-                  <Thumbnail/>
-                  <Thumbnail/>
-                  <Thumbnail/>
-                  <Thumbnail/>
-                  <Thumbnail/>
+                  <Thumbnail />
+                  <Thumbnail />
+                  <Thumbnail />
+                  <Thumbnail />
+                  <Thumbnail />
+                  <Thumbnail />
+                  <Thumbnail />
+                  <Thumbnail />
+                  <Thumbnail />
+                  <Thumbnail />
                 </Row>
               </XPanel.Content>
             </XPanel>
@@ -55,7 +54,7 @@ function Thumbnail() {
     <div className="col-md-55">
       <div className="thumbnail">
         <div className="image view view-first">
-          <img style={ style } src="/images/media.jpg" alt="this is a thumbnail"/>
+          <img style={style} src="/images/media.jpg" alt="this is a thumbnail" />
           <div className="mask">
             <p>Your Text</p>
             <div className="tools tools-bottom">

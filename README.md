@@ -31,3 +31,4 @@ To contribute, please ensure that you have stable NodeJS and npm installed.
 React - Gentella & Gentella is under The MIT License (MIT). Which means that you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software. But you always need to state the original authors of these.
 
 Project is developed and maintained by [Nearsoft](https://nearsoft.com/) Devs.
+# react-admin-mrs

@@ -1,33 +1,33 @@
 import React, { Component } from 'react'
-import { Row, Col, Clearfix } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import { XPanel, PageTitle } from '../../components'
 import iconsData from './icons-data.json'
 
 class Icons extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       panelVisible: true,
       search: ''
     }
   }
-  
-  render () {
+
+  render() {
     const { panelVisible } = this.state
-    const onHide = e => this.setState({panelVisible: !panelVisible})
+    const onHide = e => this.setState({ panelVisible: !panelVisible })
     const onSearch = search => this.setState({ search })
     const { search } = this.state
 
     return (
       <div>
-        <PageTitle showSearch title="Font Awesome Icons" smallTitle="try the search, it works!" onSearch={onSearch}/>
-        <Clearfix />
+        <PageTitle showSearch title="Font Awesome Icons" smallTitle="try the search, it works!" onSearch={onSearch} />
+
         <Row>
           <Col md={12} sm={12} xs={12}>
             <XPanel visible={panelVisible} onHide={onHide}>
               <XPanel.Title title="Font Awesome Icons" smallTitle="different icon design elements">
-                  <XPanel.MenuItem>Settings 1</XPanel.MenuItem>
-                  <XPanel.MenuItem>Settings 2</XPanel.MenuItem>
+                <XPanel.MenuItem>Settings 1</XPanel.MenuItem>
+                <XPanel.MenuItem>Settings 2</XPanel.MenuItem>
               </XPanel.Title>
               <XPanel.Content>
                 <IconsSection groupId="web-application" search={search} />
@@ -36,11 +36,11 @@ class Icons extends Component {
                   <div className="alert alert-success">
                     <ul className="fa-ul">
                       <li>
-                        <i className="fa fa-info-circle fa-lg fa-li"></i> These icons work great with the <code>fa-spin</code> class. Check out the 
+                        <i className="fa fa-info-circle fa-lg fa-li"></i> These icons work great with the <code>fa-spin</code> class. Check out the
                         {' '}<a href="../examples/#spinning" className="alert-link">spinning icons example</a>.
                       </li>
                     </ul>
-                  </div>                  
+                  </div>
                 </IconsSection>
                 <IconsSection groupId="form-control" search={search} />
                 <IconsSection groupId="payment" search={search} />
@@ -71,35 +71,35 @@ class Icons extends Component {
   }
 }
 
-function IconsSection({groupId, children, search='', className=''}) {
+function IconsSection({ groupId, children, search = '', className = '' }) {
   const { header, icons } = iconsData[groupId]
 
   return (
     <section id={groupId}>
       <h2 className="page-header">{header}</h2>
-      { children }
+      {children}
       <Row className="fontawesome-icon-list">
-      {
-        icons.map(icon => {
-          const isAlias = !!icon.alias
-          const code = isAlias ? icon.alias : icon
+        {
+          icons.map(icon => {
+            const isAlias = !!icon.alias
+            const code = isAlias ? icon.alias : icon
 
-          if (search && code.indexOf(search) === -1) {
-            return null
-          }
+            if (search && code.indexOf(search) === -1) {
+              return null
+            }
 
-          return (
-            <Col key={code} md={3} sm={4} xs={12} className="fa-hover">
-              <a href={`#/${code}`}>
-                <i className={`fa ${className} fa-${code}`}></i>
-                {`fa-${code}`}
-                { isAlias ? <span className="text-muted"> (alias)</span> : null }
-              </a>
-            </Col>
-          )
-        })
-      }
-      </Row>    
+            return (
+              <Col key={code} md={3} sm={4} xs={12} className="fa-hover">
+                <a href={`#/${code}`}>
+                  <i className={`fa ${className} fa-${code}`}></i>
+                  {`fa-${code}`}
+                  {isAlias ? <span className="text-muted"> (alias)</span> : null}
+                </a>
+              </Col>
+            )
+          })
+        }
+      </Row>
     </section>
   )
 }
